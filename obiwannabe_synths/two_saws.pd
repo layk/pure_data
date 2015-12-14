@@ -1,33 +1,33 @@
-#N canvas 1280 49 1360 715 10;
+#N canvas 1484 165 1018 508 10;
 #X obj 1079 -105 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 8100 1;
 #X obj 1115 175 vsl 15 128 0 0.3 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5800 1;
+-1 -1 12700 1;
 #X text 1108 155 amp;
-#X obj 37 -34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 507 -23 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X obj 854 -113 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 1200 1;
+-1 -1 5100 1;
 #X obj 926 -119 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2100 1;
+-1 -1 3300 1;
 #X floatatom 854 31 5 0 0 0 - - -;
 #X floatatom 929 30 5 0 0 0 - - -;
 #X text 843 -132 attack;
 #X text 923 -132 decay;
 #X obj 1169 -99 vsl 15 128 0.5 6 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X text 1002 -61;
+-1 -1 5000 1;
+#X text 1002 -61 comment;
 #X floatatom 1079 37 5 0 0 0 - - -;
 #X floatatom 1162 47 5 0 0 0 - - -;
 #X floatatom 1106 324 5 0 0 0 - - -;
 #X obj 1012 -116 vsl 15 128 0 3000 0 0 empty empty empty 0 -9 0 10
--262144 -1 -1 300 1;
+-262144 -1 -1 3900 1;
 #X floatatom 1020 27 5 0 0 0 - - -;
-#X obj 760 161 vsl 15 128 22.5 440 0 0 empty empty empty 0 -9 0 10
--262144 -1 -1 2300 1;
+#X obj 759 162 vsl 15 128 22.5 440 0 0 empty empty empty 0 -9 0 10
+-262144 -1 -1 8500 1;
 #X obj 829 161 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5600 1;
-#X floatatom 762 302 5 0 0 0 - - -;
+-1 -1 1400 1;
+#X floatatom 791 299 5 0 0 0 - - -;
 #X floatatom 839 301 5 0 0 0 - - -;
 #X text 751 141 pitch;
 #X text 814 134 fatness;
@@ -35,9 +35,9 @@
 #X text 1003 -137 range;
 #X text 1147 -122 resonance;
 #X obj 951 142 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9000 1;
+-1 -1 5900 1;
 #X obj 1031 179 vsl 15 128 0 2000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 7700 1;
+-1 -1 7100 1;
 #X floatatom 1044 328 5 0 0 0 - - -;
 #X floatatom 967 313 5 0 0 0 - - -;
 #X text 938 141 attack;
@@ -52,8 +52,8 @@
 #X obj 943 337 s \$0-attack;
 #X obj 1047 366 s \$0-decay;
 #X obj 1118 350 s \$0-amp;
-#X obj 37 99 dac~;
-#N canvas 1594 194 450 300 synth 1;
+#X obj 508 111 dac~;
+#N canvas 1829 97 698 552 synth 1;
 #X text 363 289 filter;
 #X text 93 352 loudness;
 #X obj 52 351 *~ 0.2;
@@ -61,7 +61,7 @@
 #X obj 52 264 bp~ 100 3;
 #X obj 52 299 hip~ 60;
 #X text 106 294 high pass filter;
-#N canvas 1787 289 724 291 envelope 1;
+#N canvas 1327 456 724 291 envelope 0;
 #X obj 251 173 line;
 #X obj 214 35 t b b;
 #X text 19 34 evaluate from right to left -->;
@@ -96,7 +96,7 @@
 #X restore 198 90 pd envelope;
 #X obj 361 320 + 20;
 #X obj 361 292 * 3000;
-#N canvas 1333 108 450 300 fat_oscillator 0;
+#N canvas 1331 123 450 300 fat_oscillator 1;
 #X obj 89 8 inlet pitch;
 #X obj 186 9 inlet fatness;
 #X obj 146 266 outlet~;
@@ -127,7 +127,7 @@
 #X restore 51 209 pd fat_oscillator;
 #X obj 361 262 t b f;
 #X obj 453 269 t b f;
-#N canvas 1768 286 724 291 envelope 1;
+#N canvas 1825 375 724 291 envelope 0;
 #X obj 251 173 line;
 #X obj 214 35 t b b;
 #X obj 214 69 del;
@@ -140,14 +140,14 @@
 #X msg 251 127 1 \$1;
 #X text 59 127 message substitution?-->;
 #X text 19 93 floats store until triggered -->;
-#X obj 214 -4 inlet;
 #X obj 251 219 outlet;
 #X text 163 183 comment;
 #X text 92 176 comment;
 #X text 60 134 comment;
-#X obj 260 -4 inlet;
-#X obj 304 -4 inlet;
-#X connect 0 0 13 0;
+#X obj 161 -3 inlet trigger;
+#X obj 260 -4 inlet attack;
+#X obj 391 7 inlet decay;
+#X connect 0 0 12 0;
 #X connect 1 0 2 0;
 #X connect 1 1 4 0;
 #X connect 2 0 3 0;
@@ -155,7 +155,7 @@
 #X connect 4 0 9 0;
 #X connect 8 0 0 0;
 #X connect 9 0 0 0;
-#X connect 12 0 1 0;
+#X connect 16 0 1 0;
 #X connect 17 0 2 1;
 #X connect 17 0 4 1;
 #X connect 18 0 3 1;
@@ -214,17 +214,20 @@
 #X connect 32 0 30 0;
 #X connect 33 0 31 0;
 #X connect 33 1 31 1;
-#X restore 37 31 pd synth;
+#X restore 508 43 pd synth;
 #X obj 272 38 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X msg 189 -31;
-#X msg 189 -31;
-#X msg 189 -31;
-#X msg 147 -67 32;
-#X msg 187 -61 46;
-#X msg 189 -30 66;
-#X msg 144 -26 44;
-#X msg 140 4 77;
+#X msg 660 -19;
+#X msg 660 -19;
+#X msg 660 -19;
+#X msg 618 -55 32;
+#X msg 658 -49 46;
+#X msg 660 -18 66;
+#X msg 615 -14 44;
+#X msg 611 16 77;
+#X obj 577 193 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
+-1 -1 2;
+#X floatatom 623 254 5 0 0 0 - - -;
 #X connect 0 0 12 0;
 #X connect 0 0 37 0;
 #X connect 1 0 14 0;
@@ -239,7 +242,6 @@
 #X connect 15 0 16 0;
 #X connect 15 0 36 0;
 #X connect 17 0 19 0;
-#X connect 17 0 32 0;
 #X connect 18 0 20 0;
 #X connect 18 0 33 0;
 #X connect 26 0 29 0;
@@ -247,8 +249,11 @@
 #X connect 27 0 28 0;
 #X connect 27 0 40 0;
 #X connect 43 0 42 0;
+#X connect 45 0 43 0;
 #X connect 48 0 43 0;
 #X connect 49 0 43 0;
 #X connect 51 0 43 0;
 #X connect 52 0 43 0;
+#X connect 53 0 54 0;
+#X connect 53 0 32 0;
 #X coords 0 -1 1 1 250 250 1 100 300;
